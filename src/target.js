@@ -10,7 +10,7 @@ class Target {
     ctx.beginPath();
     ctx.arc(this.x, this.y, 10, 0, 2 * Math.PI, false);
     ctx.closePath();
-    ctx.fillStyle = 'red';
+    ctx.fillStyle = 'green';
     ctx.fill();
     ctx.beginPath();
     ctx.arc(this.x, this.y, 6, 0, 2 * Math.PI, false);
