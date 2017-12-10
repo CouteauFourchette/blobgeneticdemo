@@ -73,9 +73,9 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var GAME_WIDTH = exports.GAME_WIDTH = 600;
+var GAME_WIDTH = exports.GAME_WIDTH = 400;
 var GAME_HEIGHT = exports.GAME_HEIGHT = 600;
-var LIFE = exports.LIFE = 250;
+var LIFE = exports.LIFE = 280;
 
 /***/ }),
 /* 1 */
@@ -169,7 +169,8 @@ var Game = function () {
       this.obstacle.draw(ctx);
       ctx.fillStyle = '#333';
       this.ctx.font = '20px Arial';
-      this.ctx.fillText('Generation: ' + this.generationNumber, _util.GAME_WIDTH - 170, 50);
+      ctx.textAlign = "start";
+      this.ctx.fillText('Generation: ' + this.generationNumber, 20, 30);
     }
   }, {
     key: 'move',
@@ -243,7 +244,7 @@ var Ship = function () {
     _classCallCheck(this, Ship);
 
     this.x = _util.GAME_WIDTH / 2;
-    this.y = _util.GAME_WIDTH - 50;
+    this.y = _util.GAME_HEIGHT - 50;
 
     this.size = 10;
 
@@ -317,7 +318,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var MUTATION_RATE = 0.015;
+var MUTATION_RATE = 0.01;
 
 var Generation = function () {
   function Generation(oldGeneration) {
@@ -380,7 +381,7 @@ var Generation = function () {
         }
         // Mutation
         if (Math.random() < MUTATION_RATE) {
-          childData[i] = [(Math.random() - 0.5) / 2, (Math.random() - 0.5) / 2];
+          childData[i] = [Math.random() - 0.5, Math.random() - 0.5];
         }
       }
       return new _ship_brain2.default(childData);
@@ -429,7 +430,7 @@ var ShipBrain = function () {
       var fitness = 1 / ((shipX - targetX) ** 2 + (shipY - targetY) ** 2) ** (2 / 3);
       console.log(fitness);
       if (shipX > targetX - 10 && shipX < targetX + 10 && shipY > targetY - 10 && shipY < targetY + 10) {
-        fitness = 1;
+        fitness = 3;
       }
       if (fitness > this.fitness) this.fitness = fitness;
     }
@@ -511,7 +512,7 @@ var Target = function () {
       ctx.beginPath();
       ctx.arc(this.x, this.y, 10, 0, 2 * Math.PI, false);
       ctx.closePath();
-      ctx.fillStyle = 'red';
+      ctx.fillStyle = 'green';
       ctx.fill();
       ctx.beginPath();
       ctx.arc(this.x, this.y, 6, 0, 2 * Math.PI, false);
