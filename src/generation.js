@@ -1,7 +1,7 @@
 import { GAME_WIDTH, GAME_HEIGHT, LIFE } from './util';
 import ShipBrain from './ship_brain';
 
-const MUTATION_RATE = 0.02;
+const MUTATION_RATE = 0.015;
 
 class Generation {
   constructor(oldGeneration) {
