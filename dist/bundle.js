@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -70,7 +70,21 @@
 "use strict";
 
 
-var _util = __webpack_require__(1);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var GAME_WIDTH = exports.GAME_WIDTH = 600;
+var GAME_HEIGHT = exports.GAME_HEIGHT = 600;
+var LIFE = exports.LIFE = 250;
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _util = __webpack_require__(0);
 
 var _game = __webpack_require__(2);
 
@@ -86,20 +100,6 @@ document.addEventListener('DOMContentLoaded', function () {
   var game = new _game2.default(ctx, _util.GAME_WIDTH, _util.GAME_HEIGHT);
   game.start();
 });
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var GAME_WIDTH = exports.GAME_WIDTH = 600;
-var GAME_HEIGHT = exports.GAME_HEIGHT = 600;
-var LIFE = exports.LIFE = 300;
 
 /***/ }),
 /* 2 */
@@ -122,7 +122,7 @@ var _generation = __webpack_require__(4);
 
 var _generation2 = _interopRequireDefault(_generation);
 
-var _obstacle = __webpack_require__(5);
+var _obstacle = __webpack_require__(6);
 
 var _obstacle2 = _interopRequireDefault(_obstacle);
 
@@ -130,7 +130,7 @@ var _target = __webpack_require__(7);
 
 var _target2 = _interopRequireDefault(_target);
 
-var _util = __webpack_require__(1);
+var _util = __webpack_require__(0);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -234,7 +234,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _util = __webpack_require__(1);
+var _util = __webpack_require__(0);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -307,9 +307,9 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _util = __webpack_require__(1);
+var _util = __webpack_require__(0);
 
-var _ship_brain = __webpack_require__(6);
+var _ship_brain = __webpack_require__(5);
 
 var _ship_brain2 = _interopRequireDefault(_ship_brain);
 
@@ -317,7 +317,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var MUTATION_RATE = 0.02;
+var MUTATION_RATE = 0.015;
 
 var Generation = function () {
   function Generation(oldGeneration) {
@@ -405,47 +405,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _util = __webpack_require__(1);
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var Obstacle = function () {
-  function Obstacle() {
-    _classCallCheck(this, Obstacle);
-
-    this.x = _util.GAME_WIDTH / 3;
-    this.y = _util.GAME_HEIGHT / 2;
-    this.height = 30;
-    this.width = _util.GAME_WIDTH / 3;
-  }
-
-  _createClass(Obstacle, [{
-    key: 'draw',
-    value: function draw(ctx) {
-      ctx.fillStyle = 'red';
-      ctx.fillRect(this.x, this.y, this.width, this.height);
-    }
-  }]);
-
-  return Obstacle;
-}();
-
-exports.default = Obstacle;
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _util = __webpack_require__(1);
+var _util = __webpack_require__(0);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -481,6 +441,46 @@ var ShipBrain = function () {
 exports.default = ShipBrain;
 
 /***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _util = __webpack_require__(0);
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Obstacle = function () {
+  function Obstacle() {
+    _classCallCheck(this, Obstacle);
+
+    this.x = _util.GAME_WIDTH / 3;
+    this.y = _util.GAME_HEIGHT / 2;
+    this.height = 30;
+    this.width = _util.GAME_WIDTH / 3;
+  }
+
+  _createClass(Obstacle, [{
+    key: 'draw',
+    value: function draw(ctx) {
+      ctx.fillStyle = 'red';
+      ctx.fillRect(this.x, this.y, this.width, this.height);
+    }
+  }]);
+
+  return Obstacle;
+}();
+
+exports.default = Obstacle;
+
+/***/ }),
 /* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -493,7 +493,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _util = __webpack_require__(1);
+var _util = __webpack_require__(0);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
