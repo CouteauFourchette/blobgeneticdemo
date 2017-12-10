@@ -30,7 +30,8 @@ class Game {
     this.obstacle.draw(ctx);
     ctx.fillStyle = '#333';
     this.ctx.font = '20px Arial';
-    this.ctx.fillText(`Generation: ${this.generationNumber}`, (GAME_WIDTH - 170) , 50);
+    ctx.textAlign = "start"; 
+    this.ctx.fillText(`Generation: ${this.generationNumber}`, 20, 30);
   }
 
   move() {

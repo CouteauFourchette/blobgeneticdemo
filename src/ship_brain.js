@@ -14,7 +14,7 @@ class ShipBrain {
     let fitness = 1 / (((shipX - targetX) ** 2 + (shipY - targetY) ** 2) ** (2 / 3));
     console.log(fitness);
     if (shipX > (targetX - 10) && shipX < (targetX + 10) && shipY > (targetY - 10) && shipY < (targetY + 10)) {
-      fitness = 1;
+      fitness = 3;
     }
     if (fitness > this.fitness) this.fitness = fitness;
   }

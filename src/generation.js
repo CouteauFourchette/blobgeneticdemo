@@ -1,7 +1,7 @@
 import { GAME_WIDTH, GAME_HEIGHT, LIFE } from './util';
 import ShipBrain from './ship_brain';
 
-const MUTATION_RATE = 0.015;
+const MUTATION_RATE = 0.01;
 
 class Generation {
   constructor(oldGeneration) {
@@ -56,7 +56,7 @@ class Generation {
       }
       // Mutation
       if (Math.random() < MUTATION_RATE) {
-        childData[i] = [(Math.random() - 0.5) / 2, (Math.random() - 0.5) / 2];
+        childData[i] = [(Math.random() - 0.5), (Math.random() - 0.5)];
       }
     }
     return new ShipBrain(childData);

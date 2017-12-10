@@ -3,7 +3,7 @@ import { GAME_WIDTH, GAME_HEIGHT, LIFE } from './util';
 class Ship {
   constructor() {
     this.x = GAME_WIDTH / 2;
-    this.y = GAME_WIDTH - 50;
+    this.y = GAME_HEIGHT - 50;
 
     this.size = 10;
 
@@ -11,8 +11,8 @@ class Ship {
 
     this.dead = false;
 
-    this.vel = [0, 0]
-    this.acc = [0, -0.2]
+    this.vel = [0, 0];
+    this.acc = [0, -0.2];
 
     this.completed = false;
     this.crashed = false;
